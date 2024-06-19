@@ -1,0 +1,160 @@
+* {
+  margin: 0px;
+  padding: 0px;
+  box-sizing: border-box;
+  color: #475569;
+}
+
+body {
+  height: 100vh;
+  background-image: linear-gradient(to bottom right, #a78bfa, #8b5cf6, #7c3aed);
+}
+
+header h1 {
+  text-align: center;
+  font-size: x-large;
+  margin-top: 20px;
+  text-transform: uppercase;
+  color: #f5f3ff;
+  text-shadow: 0 1px 2px 0 rgb(0 0 0 / 0.05);
+}
+header p {
+  text-align: center;
+  color: #ddd6fe;
+  margin-top: 10px;
+}
+
+main {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 10px;
+  height: 80vh;
+  margin: 40px 20px;
+}
+
+section {
+  background-color: #f5f3ff;
+  border-radius: 10px;
+  width: 90%;
+}
+
+.reg-form {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+form {
+  padding: 40px;
+  width: 100%;
+}
+form div {
+  margin-bottom: 20px;
+}
+label,
+input {
+  width: 100%;
+}
+
+form input {
+  padding: 10px;
+  border: 1px solid #94a3b8;
+  border-radius: 10px;
+  margin-top: 4px;
+}
+
+input[type="submit"] {
+  background-color: #8b5cf6;
+  border: none;
+  box-shadow: 0 1px 2px 0 rgb(0 0 0 / 0.05);
+  color: #f5f3ff;
+  text-transform: uppercase;
+  border-radius: 50px;
+  padding: 10px;
+}
+/* ****************second section*******************/
+
+.record {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  overflow-x: scroll;
+}
+
+table {
+  margin: 30px 0px;
+  width: 90%;
+  border-bottom: 1px solid #94a3b8;
+  border-collapse: collapse;
+  box-shadow: 0 4px 6px -1px rgb(0 0 0 / 0.1), 0 2px 4px -2px rgb(0 0 0 / 0.1);
+  border-radius: 4px;
+  padding: 20px;
+}
+
+td,
+th {
+  text-align: center;
+  height: 40px;
+  border-bottom: 1px solid #94a3b8;
+}
+tr:hover {
+  background-color: #e7e5e4;
+  border-radius: 4px;
+}
+tbody {
+  overflow: scroll;
+}
+
+.empty-message {
+  height: 64vh;
+}
+.empty-message td {
+  height: 100%;
+}
+button {
+  padding: 0px;
+  border: none;
+  cursor: pointer;
+  margin: 10px;
+}
+.fa-pen-to-square {
+  color: #2563eb;
+  font-size: 16px;
+  background-color: inherit;
+}
+.fa-trash {
+  font-size: 16px;
+  color: red;
+}
+.phoneError {
+  font-size: small;
+  color: #f87171;
+  margin-left: 10px;
+}
+.hide {
+  display: none;
+}
+.tableHead {
+  background-color: #8b5cf6;
+  color: white;
+  border-radius: 4px;
+}
+.tableHead:hover {
+  background-color: #7c3aed;
+}
+.tableHead th {
+  color: #e7e5e4;
+}
+
+@media (min-width: 950px) {
+  main {
+    gap: 0px;
+    flex-direction: row;
+    align-items: stretch;
+    justify-content: space-between;
+  }
+  section {
+    width: 48%;
+  }
+}

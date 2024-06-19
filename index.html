@@ -1,0 +1,101 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Student Registration System</title>
+    <link rel="stylesheet" href="./index.css" />
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css"
+      integrity="sha512-SnH5WK+bZxgPHs44uWIX+LLJAJ9/2PkPKZ5QiAj6Ta86w+fsb2TkcmfRyVX3pBnMFcV7oQPJkl9QevSCWr3W6A=="
+      crossorigin="anonymous"
+      referrerpolicy="no-referrer"
+    />
+  </head>
+  <body>
+    <div class="main-container">
+      <header>
+        <h1>Student Registration System</h1>
+        <p>
+          Welcome to the Student Registration System! This system allows
+          students to register by entering their details. Each submission will
+          display the entered information dynamically on the page.
+        </p>
+      </header>
+      <main>
+        <section class="reg-form">
+          <form onsubmit="event.preventDefault(); onFormSubmit()">
+            <div>
+              <label for="name">Student Name</label>
+              <input
+                type="text"
+                required
+                id="name"
+                placeholder="Enter The Student Name"
+                name="name"
+              />
+            </div>
+            <div>
+              <label for="id">Student Id</label>
+
+              <input
+                type="text"
+                required
+                id="id"
+                placeholder="Enter The Student ID"
+                name="id"
+              />
+            </div>
+            <div>
+              <label for="email">Email ID</label>
+
+              <input
+                type="email"
+                required
+                id="email"
+                placeholder="Enter The Student Email"
+                name="email"
+              />
+            </div>
+            <div>
+              <label for="contact">Contact No</label>
+              <label class="phoneError hide" id="contactError">
+                Enter a valid number</label
+              >
+              <input
+                type="number"
+                required
+                id="contact"
+                placeholder="Enter The Student Number"
+                name="contact"
+              />
+            </div>
+            <div>
+              <input type="submit" value="submit" />
+            </div>
+          </form>
+        </section>
+        <section class="record">
+          <table>
+            <thead>
+              <tr class="tableHead">
+                <th>Name</th>
+                <th>Id</th>
+                <th>Email</th>
+                <th>Contact No</th>
+                <th>Action</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr class="empty-message">
+                <td colspan="5">Enter new student</td>
+              </tr>
+            </tbody>
+          </table>
+        </section>
+      </main>
+    </div>
+    <script src="./index.js"></script>
+  </body>
+</html>
