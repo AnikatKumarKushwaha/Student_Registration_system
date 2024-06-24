@@ -1,3 +1,4 @@
+/*  Task5 Apply CSS styling*/
 * {
   margin: 0px;
   padding: 0px;
@@ -8,6 +9,10 @@
 body {
   height: 100vh;
   background-image: linear-gradient(to bottom right, #a78bfa, #8b5cf6, #7c3aed);
+}
+
+.main-container {
+  overflow-x: scroll;
 }
 
 header h1 {
@@ -38,6 +43,7 @@ section {
   border-radius: 10px;
   width: 90%;
 }
+/* ****************First section*******************/
 
 .reg-form {
   display: flex;
@@ -49,12 +55,21 @@ form {
   padding: 40px;
   width: 100%;
 }
+
 form div {
   margin-bottom: 20px;
 }
+
 label,
 input {
   width: 100%;
+}
+
+label {
+  display: inline-block;
+  margin-bottom: 5px;
+  text-transform: uppercase;
+  font-size: small;
 }
 
 form input {
@@ -62,6 +77,16 @@ form input {
   border: 1px solid #94a3b8;
   border-radius: 10px;
   margin-top: 4px;
+}
+
+input:focus {
+  border: 2px solid #7c3aed;
+  outline: none;
+}
+
+input:active {
+  border: 2px solid #7c3aed;
+  outline: none;
 }
 
 input[type="submit"] {
@@ -73,13 +98,17 @@ input[type="submit"] {
   border-radius: 50px;
   padding: 10px;
 }
+
+.phoneError {
+  font-size: 8px;
+  color: #f87171;
+}
 /* ****************second section*******************/
 
 .record {
   display: flex;
   flex-direction: column;
   align-items: center;
-  overflow-x: scroll;
 }
 
 table {
@@ -98,10 +127,12 @@ th {
   height: 40px;
   border-bottom: 1px solid #94a3b8;
 }
+
 tr:hover {
   background-color: #e7e5e4;
   border-radius: 4px;
 }
+
 tbody {
   overflow: scroll;
 }
@@ -109,45 +140,49 @@ tbody {
 .empty-message {
   height: 64vh;
 }
+
 .empty-message td {
   height: 100%;
 }
+
 button {
   padding: 0px;
   border: none;
   cursor: pointer;
   margin: 10px;
 }
+
 .fa-pen-to-square {
   color: #2563eb;
   font-size: 16px;
   background-color: inherit;
 }
+
 .fa-trash {
   font-size: 16px;
   color: red;
 }
-.phoneError {
-  font-size: small;
-  color: #f87171;
-  margin-left: 10px;
-}
+
 .hide {
   display: none;
 }
+
 .tableHead {
   background-color: #8b5cf6;
   color: white;
   border-radius: 4px;
 }
+
 .tableHead:hover {
   background-color: #7c3aed;
 }
+
 .tableHead th {
   color: #e7e5e4;
 }
 
-@media (min-width: 950px) {
+/* **************Media Query**************** */
+@media (min-width: 1000px) {
   main {
     gap: 0px;
     flex-direction: row;
@@ -156,5 +191,11 @@ button {
   }
   section {
     width: 48%;
+  }
+  .record {
+    overflow-x: scroll;
+  }
+  .main-container {
+    overflow-x: initial;
   }
 }

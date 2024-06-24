@@ -1,8 +1,11 @@
+<!----Task1: HTML file named "index.html"-->
 <!DOCTYPE html>
 <html lang="en">
   <head>
+    <!---Task1: Meta Tags-->
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <!---Task1: Title-->
     <title>Student Registration System</title>
     <link rel="stylesheet" href="./index.css" />
     <link
@@ -16,7 +19,9 @@
   <body>
     <div class="main-container">
       <header>
+        <!----Task2:- Header Title-->
         <h1>Student Registration System</h1>
+        <!----Task2:- Description summarizing the system's functionalities.-->
         <p>
           Welcome to the Student Registration System! This system allows
           students to register by entering their details. Each submission will
@@ -25,6 +30,7 @@
       </header>
       <main>
         <section class="reg-form">
+          <!----Task3:-Form with input fields for student details-->
           <form onsubmit="event.preventDefault(); onFormSubmit()">
             <div>
               <label for="name">Student Name</label>
@@ -61,7 +67,7 @@
             <div>
               <label for="contact">Contact No</label>
               <label class="phoneError hide" id="contactError">
-                Enter a valid number</label
+                *Enter a valid number</label
               >
               <input
                 type="number"
@@ -76,7 +82,9 @@
             </div>
           </form>
         </section>
+        <!--Task4:-Section to display registered student records-->
         <section class="record">
+          <!----Task4 Display student details in a clear and organized manner.-->
           <table>
             <thead>
               <tr class="tableHead">
@@ -89,7 +97,7 @@
             </thead>
             <tbody>
               <tr class="empty-message">
-                <td colspan="5">Enter new student</td>
+                <td colspan="5">Enter new student data</td>
               </tr>
             </tbody>
           </table>

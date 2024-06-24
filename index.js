@@ -5,7 +5,7 @@ function onFormSubmit() {
     let formData = readFormData();
     if (selectedRow == null) {
       insertNewData(formData);
-      saveToLocalStorage(formData); // Save only new entries
+      saveToLocalStorage(formData);
     } else {
       updateRecord(formData);
     }
@@ -27,7 +27,6 @@ function insertNewData(data) {
     .getElementsByTagName("table")[0]
     .getElementsByTagName("tbody")[0];
 
-  // Remove the empty message row if present
   if (
     table.rows.length === 1 &&
     table.rows[0].classList.contains("empty-message")
@@ -35,22 +34,22 @@ function insertNewData(data) {
     table.deleteRow(0);
   }
 
+  insertRow(table, data);
+}
+
+//Task6:- Functionality to add new student records.
+function insertRow(table, data) {
   let newRow = table.insertRow(table.rows.length);
-  let cell1 = newRow.insertCell(0);
-  cell1.innerHTML = data.name;
-  let cell2 = newRow.insertCell(1);
-  cell2.innerHTML = data.id;
-  let cell3 = newRow.insertCell(2);
-  cell3.innerHTML = data.email;
-  let cell4 = newRow.insertCell(3);
-  cell4.innerHTML = data.contact;
-  let cell5 = newRow.insertCell(4);
-  cell5.innerHTML = `<button onclick="editRow(this)">
-                          <i class="fa-solid fa-pen-to-square"></i>
-                      </button>
-                      <button onclick="onDelete(this)">
-                          <i class="fa-solid fa-trash"></i>
-                      </button>`;
+  newRow.insertCell(0).innerHTML = data.name;
+  newRow.insertCell(1).innerHTML = data.id;
+  newRow.insertCell(2).innerHTML = data.email;
+  newRow.insertCell(3).innerHTML = data.contact;
+  newRow.insertCell(4).innerHTML = `<button onclick="editRow(this)">
+                                        <i class="fa-solid fa-pen-to-square"></i>
+                                    </button>
+                                    <button onclick="onDelete(this)">
+                                        <i class="fa-solid fa-trash"></i>
+                                    </button>`;
 }
 
 function resetForm() {
@@ -61,6 +60,7 @@ function resetForm() {
   selectedRow = null;
 }
 
+//Task6: Use of Local Storage
 function saveToLocalStorage(data) {
   let storedData = localStorage.getItem("formData");
   if (storedData) {
@@ -76,37 +76,20 @@ function loadData() {
   let storedData = localStorage.getItem("formData");
   if (storedData) {
     storedData = JSON.parse(storedData);
-    for (let data of storedData) {
-      // Directly add rows to the table without calling insertNewData
-      let table = document
-        .getElementsByTagName("table")[0]
-        .getElementsByTagName("tbody")[0];
-      if (
-        table.rows.length === 1 &&
-        table.rows[0].classList.contains("empty-message")
-      ) {
-        table.deleteRow(0);
-      }
-      let newRow = table.insertRow(table.rows.length);
-      let cell1 = newRow.insertCell(0);
-      cell1.innerHTML = data.name;
-      let cell2 = newRow.insertCell(1);
-      cell2.innerHTML = data.id;
-      let cell3 = newRow.insertCell(2);
-      cell3.innerHTML = data.email;
-      let cell4 = newRow.insertCell(3);
-      cell4.innerHTML = data.contact;
-      let cell5 = newRow.insertCell(4);
-      cell5.innerHTML = `<button onclick="editRow(this)">
-                                  <i class="fa-solid fa-pen-to-square"></i>
-                              </button>
-                              <button onclick="onDelete(this)">
-                                  <i class="fa-solid fa-trash"></i>
-                              </button>`;
+    let table = document
+      .getElementsByTagName("table")[0]
+      .getElementsByTagName("tbody")[0];
+    if (
+      table.rows.length === 1 &&
+      table.rows[0].classList.contains("empty-message")
+    ) {
+      table.deleteRow(0);
     }
+    storedData.forEach((data) => insertRow(table, data));
   }
 }
 
+//Task6:- edit existing records.
 function editRow(td) {
   selectedRow = td.parentElement.parentElement;
   document.getElementById("name").value = selectedRow.cells[0].innerHTML;
@@ -127,6 +110,7 @@ function updateRecord(formData) {
   localStorage.setItem("formData", JSON.stringify(storedData));
 }
 
+//Task6:- Deleting records.
 function onDelete(td) {
   if (confirm("Are you sure to delete this record?")) {
     let row = td.parentElement.parentElement;
@@ -151,6 +135,7 @@ function onDelete(td) {
   }
 }
 
+//Contact validation to cleck and print the error message
 function validate() {
   let isValid = true;
   let contactValue = document.getElementById("contact").value;
